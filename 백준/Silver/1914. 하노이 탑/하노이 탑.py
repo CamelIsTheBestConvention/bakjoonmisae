@@ -1,3 +1,5 @@
+import sys
+
 def hanoi(n, start, sub, finish):
     if n == 1:
         print(start,finish)
@@ -6,7 +8,8 @@ def hanoi(n, start, sub, finish):
         print(start, finish)
         hanoi(n-1, sub, start, finish)
 
-n = int(input())
+
+n = int(sys.stdin.readline())
 
 print(2**n-1)
 if n<=20:
