@@ -48,7 +48,7 @@ for _ in range(N):
             # nodes 딕셔너리의 left자리에 노드를 넣고 그 노드의 왼쪽 자식값으로 넣기
             nodes[left] = Node(left)
             nodes[data].left = nodes[left]
-    # 왼쪽 자식노드가 존재할 때
+    # 오른쪽 자식노드가 존재할 때
     if right != '.':
         # 근데 그 노드가 아직 생성되지 않았을 때
         if right not in nodes:
