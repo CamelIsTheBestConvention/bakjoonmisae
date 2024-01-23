@@ -1,4 +1,5 @@
 from collections import deque
+import sys
 
 def fine_city(line, x, visited, dist):
     queue = deque([x])
@@ -22,14 +23,14 @@ def fine_city(line, x, visited, dist):
     if not found:
         print(-1)
 
-n, m, k, x = list(map(int, input().split()))
+n, m, k, x = list(map(int, sys.stdin.readline().split()))
 
 line = [[] for _ in range(n+1)]
 
 visited = [False] * (n+1)
 
 for i in range(m):
-    a, b = list(map(int, input().split()))
+    a, b = list(map(int, sys.stdin.readline().split()))
     line[a].append(b)
 
 dist = [0] * (n+1)
