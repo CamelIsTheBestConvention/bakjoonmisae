@@ -36,6 +36,7 @@ def maze_runner(x, y):
                 queue.append((nx, ny))
 
     # 현재 위치의 이동칸 반환
+    # 인덱스는 0에서 시작하므로 4행6열로 가정할 때 마지막은 [3][5]라 -1을 해줘야함
     return maze[n - 1][m - 1]
 
 # 행 n, 열 m을 입력받기
