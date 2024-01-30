@@ -10,7 +10,7 @@ def hanggop():
     for gop in range(1, n):
         for start in range(n - gop):
             end = start + gop
-            table[start][end] = float('inf')
+            table[start][end] = INF
             for mid in range(start, end):
                 table[start][end] = min(
                     table[start][end],
