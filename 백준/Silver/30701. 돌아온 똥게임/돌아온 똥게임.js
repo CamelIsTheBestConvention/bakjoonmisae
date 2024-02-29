@@ -1,29 +1,33 @@
-let input = require('fs').readFileSync('/dev/stdin').toString().trim().split('\n');
+const fs = require("fs");
+const filePath = process.platform === "linux" ? "/dev/stdin" : "./input.txt";
+let input = fs.readFileSync(filePath).toString().split("\n");
 let [N, D] = input[0].split(" ").map(Number);
-let monster = [];
-let item = [];
+let kunhoPower = D;
+let battleRoom = [];
+let weaponRoom = [];
+let clearRoom;
 
 for(let i = 1; i <= N; i++) {
     let [type, x] = input[i].split(" ").map(Number);
     if(type == 1) {
-        monster.push(x);
+        battleRoom.push(x);
     } else {
-        item.push(x);
+        weaponRoom.push(x);
     }
 }
 
-monster.sort((a, b) => a - b);
-item.sort((a, b) => a - b);
+battleRoom.sort((a, b) => a - b);
+weaponRoom.sort((a, b) => a - b);
 
-let ans = item.length; //아이템 방은 무조건 돌파 가능
-while (monster.length > 0) {
-    while (item.length > 0 && monster[0] >= D) { //장비가 남아있고 아직 몬스터를 쓰러트릴 수 없다면
-        D *= item.shift();
+clearRoom = weaponRoom.length;
+while (battleRoom.length > 0) {
+    while (weaponRoom.length > 0 && kunhoPower <= battleRoom[0]) {
+        kunhoPower *= weaponRoom.shift();
     }
-    if (monster[0] < D) { //쓰러트릴 수 있다면
-        ans++;
-        D += monster.shift();
+    if (kunhoPower > battleRoom[0]) {
+        clearRoom++;
+        kunhoPower += battleRoom.shift();
     }
-    else break; //불가능
+    else break;
 }
-console.log(ans);
+console.log(clearRoom);
