@@ -11,7 +11,6 @@ const itemMaster = (N) => {
         studentScore.push(score);
     }
 
-    // 과목별로 정렬
     for(let j = 1; j <= 4; j++) {
         studentScore.sort((a, b) => {
             if (b[j] !== a[j]) {
@@ -21,7 +20,6 @@ const itemMaster = (N) => {
             }
         });
 
-        // 상품을 아직 받지 않은 학생 중에서 점수가 가장 높은 학생을 찾음
         for(let k = 0; k < N; k++) {
             if (!item_master.includes(studentScore[k][0])) {
                 item_master.push(studentScore[k][0]);
