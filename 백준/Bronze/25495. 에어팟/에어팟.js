@@ -5,8 +5,8 @@ let input = fs.readFileSync(filePath).toString().split("\n");
 const Airpot = (n) => {
     const phoneList = input[1].split(" ").map(Number);
     let batteryUse = 0;
-    let lastPhone = -1;
-    let lastPhoneUse = -1;
+    let lastPhone = 0;
+    let lastPhoneUse = 0;
 
     for(let i = 0; i < n; i++) {
         if(phoneList[i] == lastPhone) { 
